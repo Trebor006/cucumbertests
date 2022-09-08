@@ -23,12 +23,11 @@ public class DriverManager {
         return instance;
     }
 
-    public Page resetContext(){
+    public void resetContext(){
         Playwright playwright = Playwright.create();
         Page page = playwright.chromium().launch(getBrowserOptions()).newContext().newPage();
         page.setViewportSize(1920, 1080);
         this.driver = page;
-        return page;
     }
 
     private BrowserType.LaunchOptions getBrowserOptions() {
