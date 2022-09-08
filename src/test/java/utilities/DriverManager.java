@@ -11,7 +11,7 @@ public class DriverManager {
 
     private DriverManager() {
         Playwright playwright = Playwright.create();
-        Page page = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(100)).newPage();
+        Page page = playwright.chromium().launch(getBrowserOptions()).newPage();
         page.setViewportSize(1920, 1080);
         this.driver = page;
     }
@@ -21,6 +21,19 @@ public class DriverManager {
             instance = new DriverManager();
         }
         return instance;
+    }
+
+    public Page resetContext(){
+        Playwright playwright = Playwright.create();
+        Page page = playwright.chromium().launch(getBrowserOptions()).newContext().newPage();
+        page.setViewportSize(1920, 1080);
+        this.driver = page;
+        return page;
+    }
+
+    private BrowserType.LaunchOptions getBrowserOptions() {
+//        return new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(100);
+        return new BrowserType.LaunchOptions();
     }
 
     public Page getDriver() {

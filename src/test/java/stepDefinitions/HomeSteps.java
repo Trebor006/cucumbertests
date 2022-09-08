@@ -28,4 +28,24 @@ public class HomeSteps {
     public void clickOnCartIcon() {
         homePage.clickOnCartIcon();
     }
+
+    @And("I add sauce labs bike-light product to the cart")
+    public void iAddSauceLabsBikeLightProductToTheCart() {
+        homePage.clickOnAddSauceLabsBikeLightProduct();
+    }
+
+    @And("I add allthethings T-shirt red product to the cart")
+    public void iAddAllthethingsTShirtRedProductToTheCart() {
+        homePage.clickOnAddAllthethingsTShirtRed();
+    }
+
+    @And("I click on remove AllTheThing TShirt button")
+    public void iClickOnRemoveAllTheThingTShirtButton() {
+        homePage.clickOnRemoveAllTheThingTShirtButton();
+    }
+
+    @Then("verify add AllTheThing TShirt button is visible")
+    public void verifyAddAllTheThingTShirtButtonIsVisible() {
+        homePage.verifyAddAllTheThingTShirtButtonIsVisible();
+    }
 }

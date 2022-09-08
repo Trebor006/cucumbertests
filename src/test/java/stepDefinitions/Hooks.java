@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import com.microsoft.playwright.Page;
 import io.cucumber.java.Before;
 import utilities.DriverManager;
 
@@ -7,6 +8,7 @@ public class Hooks {
 
     @Before
     public void beforeHook() {
-        DriverManager.getInstance().getDriver().navigate("https://www.saucedemo.com/");
+        Page driver = DriverManager.getInstance().resetContext();
+        driver.navigate("https://www.saucedemo.com/");
     }
 }
